@@ -1,14 +1,19 @@
-<html>
-<body>
-<head>
-<title>DEMO</title>
-</head>
-<h1>HELLO WORLD</h1>
-<h2>HELLO WORLD</h2>
-<h3>HELLO WORLD</h3>
-<h4>HELLO WORLD</h4>
-<h5>HELLO WORLD</h5>
-<h6>HELLO WORLD</h6>
-<p>HELLO WORLD GOOD MORNING.</p>
-</body>
-</html>
+---
+execution:
+- concurrency: 50
+hold-for: 3m
+ramp-up: 2m
+
+scenario: Choose Flight
+scenarios:
+Choose Flight:
+requests:
+-label: blazedemo
+method: GET
+url: http://blazedemo.com/
+label: reserve
+method: POST
+url: http://blazedemo.com/reserve.php
+body:
+fromPort: Paris
+toPort: Buenos Aires,
